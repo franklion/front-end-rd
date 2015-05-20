@@ -1,0 +1,25 @@
+.table {
+    display: table;
+}
+
+.col {
+    display: table-cell;
+    border: 3px solid #8210aa;
+}
+
+.row {
+    display: table-row;
+    margin: 3px auto;
+}
+
+.header {
+    height: 100px;
+}
+
+.big-banner {
+    height: 200px;
+}
+
+.footer {
+    height: 200px;
+}
