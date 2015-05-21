@@ -13,47 +13,57 @@ var gulp         = require('gulp'),
     concat       = require('gulp-concat'),
     notify       = require('gulp-notify');
 
-/* define original path */
-var ori = {
-  'summer_2015' : {
-    'scss'  : 'assets/2015/summer/scss',
-    'coffee': 'assets/2015/summer/coffee'
+/* define source path */
+var source = {
+  'fb_webroot' : {
+    'scss'  : 'fb_webroot/source/scss',
+    'js': 'fb_webroot/source/js'
   }
 };
 
 /* define destination path */
 var dest = {
-  'summer_2015' : {
-    'css' : 'resource/2015/summer/css',
-    'js'  : 'resource/2015/summer/js'
+  'fb_webroot' : {
+    'css' : 'fb_webroot/public/css',
+    'js'  : 'fb_webroot/public/js'
   }
 };
 
+/* default task */
+var defaultTask = ['compile-compass','compile-js'];
+
+
+
 /* compile compass */
 gulp.task('compile-compass', function() {
-  processCompass(ori.summer_2015.scss, dest.summer_2015.css);
+  processCompass(source.fb_webroot.scss, dest.fb_webroot.css);
 });
 
 /* coffee task */
 gulp.task('compile-coffee', function () {
-  processCoffee(ori.summer_2015.coffee, dest.summer_2015.js);
+ // ...
+});
+
+/* coffee task */
+gulp.task('compile-js', function () {
+  processJavascript(source.fb_webroot.js, dest.fb_webroot.js);
 });
 
 /* watch file */
 gulp.task('watch', function () {
-  watchScss(ori.summer_2015.scss);
-  watchCoffee(ori.summer_2015.coffee);
+  watchScss(source.fb_webroot.scss);
+  watchJavascript(source.fb_webroot.js);
 });
 
 /* default */
-gulp.task('default', ['compile-compass','compile-coffee']);
+gulp.task('default', defaultTask);
 
 
-function processCompass(ori, dest) {
-  gulp.src(ori + '/**/*.scss')
+function processCompass(source, dest) {
+  gulp.src(source + '/**/*.scss')
     .pipe(compass({
       css : dest,
-      sass: ori,
+      sass: source,
       comments: false
     }))
     .pipe(gulp.dest(dest))
@@ -63,8 +73,8 @@ function processCompass(ori, dest) {
     .pipe(notify({message: 'Compass task complete'}));
 }
 
-function processCoffee(ori, dest) {
-  gulp.src(ori + '/**/*.coffee')
+function processCoffee(source, dest) {
+  gulp.src(source + '/**/*.coffee')
     .pipe(coffeelint({
       "max_line_length": {
         "level": "ignore"
@@ -79,8 +89,24 @@ function processCoffee(ori, dest) {
     .pipe(notify({message: 'Coffee task complete'}))
 }
 
+function processJavascript(source, dest) {
+  gulp.src(source + '/**/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .pipe(gulp.dest(dest))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(dest))
+    .pipe(notify({message: 'Javascript task complete'}))
+}
+
+
 function watchScss(path) {
   gulp.watch( path +'/**/*.scss', ['compile-compass']);
+}
+
+function watchJavascript(path) {
+  gulp.watch( path + '/**/*.js', ['compile-js']);
 }
 
 function watchCoffee(path) {
