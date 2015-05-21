@@ -2,7 +2,7 @@
 
 }
 .box {
-    background-color: #333;
+    background-color: #555;
     display: inline-block;
     width: 100%;
 }
@@ -67,4 +67,9 @@
         display: block !important;
     }
 
+}
+
+[class^=col] {
+    padding-left: 3px;
+    padding-right: 3px;
 }
