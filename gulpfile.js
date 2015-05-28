@@ -51,6 +51,7 @@ gulp.task('compile-js', function () {
 
 /* watch file */
 gulp.task('watch', function () {
+  gulp.start(['compile-compass', 'compile-js']);
   watchScss(source.fb_webroot.scss);
   watchJavascript(source.fb_webroot.js);
 });
@@ -102,6 +103,7 @@ function processJavascript(source, dest) {
 
 
 function watchScss(path) {
+
   gulp.watch( path +'/**/*.scss', ['compile-compass']);
 }
 

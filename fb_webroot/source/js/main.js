@@ -2,9 +2,7 @@ $(function () {
 
   var _app_id = '998967653470510';
   var _api_key = '';
-  var rootUrl = 'http://localhost:63342/front-end-rd/fb_webroot/public/index.html';
-  var scope = 'read_stream,offline_access,publish_stream';
-  var url = 'https://www.facebook.com/dialog/oauth/?client_id='+_app_id+'&redirect_uri='+rootUrl+'&scope='+scope;
+
   //驗證
   window.fbAsyncInit = function() {
     FB.init({
@@ -12,8 +10,8 @@ $(function () {
       display: 'dialog',
       status: true, // check login status
       cookie: true, // enable cookies to allow the server to access the session
-      xfbml: true, // parse XFBML
-      oauth: true, // enable OAuth 2.0
+      xfbml: true,  // parse XFBML
+      oauth: true,  // enable OAuth 2.0
       version : 'v2.3'
     });
     FB.Canvas.setAutoGrow(); //autoResize  → no scrollbar
@@ -23,7 +21,7 @@ $(function () {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
     js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
+    js.src = "//connect.facebook.net/zh_TW/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
@@ -36,15 +34,15 @@ $(function () {
   function getLoaginState() {
     FB.getLoginStatus(function (response) {
       if (response.authResponse) {
-        var u_fb_id = response.authResponse.userID;
 
+        var u_fb_id = response.authResponse.userID;
         var accessToken = response.authResponse.accessToken;
-        //console.log(response);
-        //console.log(accessToken);
-        testAPI(accessToken);
+
 
         share();
+        //openGraphStories();
         //feed();
+
       } else {
         login();
       }
@@ -56,18 +54,19 @@ $(function () {
     FB.login(function (response) {
       if (response.authResponse) {
         var u_fb_id = response.authResponse.userID;
-
+        console.log('FB.login response', response);
       } else {
         alert('須同意應用程式');
       }
-    },{perms:'read_stream'});
+    });
   }
 
   function feed() {
     FB.ui({
       method: 'feed',
       link: 'http://fashionguide.com.tw',
-      caption: 'An example caption'
+      caption: 'An example caption',
+      message :'ppppp'
     }, function(response){
       console.log(response);
     });
@@ -75,8 +74,11 @@ $(function () {
 
   function share() {
     FB.ui({
+      //method: 'share',
+      //href: 'https://tw.yahoo.com/'
+      display: 'popup',
       method: 'share',
-      href: 'http://fashionguide.com.tw'
+      href: 'http://www.fashionguide.com.tw/'
     }, function(response){
       if (response && !response.error_code) {
         console.log("OK: "+JSON.stringify(response));
@@ -86,6 +88,18 @@ $(function () {
     });
   }
 
+  function openGraphStories() {
+    FB.ui({
+      display: 'popup',
+      method: 'share_open_graph',
+      action_type: 'og.likes',
+      action_properties: JSON.stringify({
+        object:'https://developers.facebook.com/docs/'
+      })
+    }, function(response){
+      console.log(response);
+    });
+  }
 
   function testAPI(accessToken) {
     console.log('Welcome!  Fetching your information.... ');
@@ -98,6 +112,9 @@ $(function () {
       console.log(response);
     });
   }
+
+
+
 
 
 
