@@ -1,0 +1,9 @@
+{
+  "name": "test_demo",
+  "version": "0.0.1",
+  "dependencies": {
+    "susy": "~2.2.5",
+    "breakpoint": "https://github.com/fgopen/breakpoint.git#2.5"
+  },
+  "devDependencies": {}
+}

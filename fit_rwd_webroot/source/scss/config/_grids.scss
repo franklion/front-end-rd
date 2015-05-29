@@ -1,0 +1,31 @@
+@import "compass";
+@import "susy";
+
+$susy: (
+        flow: ltr,  // 左至右rtl | 右至左 ltr
+        math: fluid, // fluid 流變% | static 固定單位，會依照 column-width 設定的單位是px 或em
+        output: float, // float 使用浮動概念 | isolate 為隔離獨立的概念，會產生重疊的可能。未來會提供 flexbox 或 grid 或其他方式
+        gutter-position: after, // before 在前方使用margin | after 在後方使用margin | split 在前後使用margin | inside 在前後使用 padding 但網格的邊緣不會被刪除，當math: fluid的時候維持流變 | inside-static 在前後使用 padding 但網格的邊緣不會被刪除，當math: fluid的時候仍使用static固定單位
+        container: auto, // 指定總寬度 | auto 自動計算
+        container-position: center,  // left 靠左 | center 置中 | right 靠右
+        columns: 6, // 欄位數量, 若是手機優先，那代表的是手機的柵欄數量
+        gutters: 0, // 溝相對於欄位的幾分之幾
+        column-width: false, //指定柵欄寬度 | false/null 自動計算, 但必須要當 math: fluid 流變的時候
+        global-box-sizing: border-box, // 全域的。border-box 可以當使用padding的時候不會超出總寬度，也就是CSS的 "box-sizing: border-box;" | content-box 一般狀況
+        last-flow: to,
+        debug: (
+                image: hide, //開發時使用show可看到柵欄，使用hide關閉柵欄顯示
+                color: rgba(#66f, .25), // 柵欄色彩
+                output: background, // background 柵欄出現在背景 | overlay 出現浮動鈕，移過去才會顯示柵欄
+                toggle: top right,
+        ),
+        use-custom: (
+                background-image: true,
+                background-options: false,
+                box-sizing: false, // false 輸出相容語法如 -moz 或 -webkit | true 視存在的mixin box-sizing 來套用
+                clearfix: false,  // false 使用內部的 mixin | true 視存在的mixin clearfix 套用，若不存在會套用內部的 micro-clearfix
+                rem: true,
+        )
+);
+
+//@include border-box-sizing;
