@@ -18,6 +18,9 @@ var source = {
   'fb_webroot' : {
     'scss'  : 'fb_webroot/source/scss',
     'js': 'fb_webroot/source/js'
+  },
+  'fit_rwd_webroot' : {
+    'scss' : 'fit_rwd_webroot/source/scss'
   }
 };
 
@@ -26,6 +29,9 @@ var dest = {
   'fb_webroot' : {
     'css' : 'fb_webroot/public/css',
     'js'  : 'fb_webroot/public/js'
+  },
+  'fit_rwd_webroot' : {
+    'css' : 'fit_rwd_webroot/public/css'
   }
 };
 
@@ -36,7 +42,8 @@ var defaultTask = ['compile-compass','compile-js'];
 
 /* compile compass */
 gulp.task('compile-compass', function() {
-  processCompass(source.fb_webroot.scss, dest.fb_webroot.css);
+  //processCompass(source.fb_webroot.scss, dest.fb_webroot.css);
+  processCompass(source.fit_rwd_webroot.scss, dest.fit_rwd_webroot.css);
 });
 
 /* coffee task */
@@ -51,8 +58,12 @@ gulp.task('compile-js', function () {
 
 /* watch file */
 gulp.task('watch', function () {
-  watchScss(source.fb_webroot.scss);
-  watchJavascript(source.fb_webroot.js);
+  gulp.start(['compile-compass']);
+
+  watchScss(source.fit_rwd_webroot.scss);
+
+  //watchScss(source.fb_webroot.scss);
+  //watchJavascript(source.fb_webroot.js);
 });
 
 /* default */
@@ -102,6 +113,7 @@ function processJavascript(source, dest) {
 
 
 function watchScss(path) {
+
   gulp.watch( path +'/**/*.scss', ['compile-compass']);
 }
 

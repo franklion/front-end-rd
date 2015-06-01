@@ -1,0 +1,14 @@
+/**
+ * rwd-column  彈性調整欄位寬度
+ *@param  $general_columns    通用欄位數量
+ *@param  $responsive_columns 彈性欄位數量
+ *@param  $max_columns        最大欄位數量
+ *@param  $min_width          彈性調整寬度 px
+ *@param  $optional           選擇性 last -> 一列的最後一個
+ */
+@mixin rwd-column($general_columns , $responsive_columns, $max_columns, $min_width, $optional:'') {
+  @include span($general_columns of $max_columns $optional);
+  @include breakpoint($min_width) {
+    @include span($responsive_columns of $max_columns $optional);
+  }
+}

@@ -1,0 +1,43 @@
+$page-height: 200px;
+
+h2 {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.page-container {
+  background-color: #fbeecb;
+  @include container;
+  @include clearfix;
+}
+
+.page-top {
+  background-color: #71dad2;
+  height: $page-height;
+  @include span(2 of 2);
+}
+
+.page-main {
+  background-color: rgba(255, 215, 103, 0.42);
+  @include span(2 of 2);
+}
+
+.page-main-left {
+  background-color: crimson;
+  height: $page-height * 2;
+  @include span(1 of 2);
+}
+
+.page-main-right {
+  background-color: khaki;
+  height: $page-height;
+  @include span(1 of 2 last);
+}
+
+.page-bottom {
+  background-color: #9be466;
+  clear: both;
+  height: $page-height * 3;
+}

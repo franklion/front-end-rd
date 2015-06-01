@@ -1,0 +1,146 @@
+$index-height: 200px;
+h2 {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.index-container {
+  background-color: #fbeecb;
+  @include container;
+  @include clearfix;
+}
+
+.index-top {
+  background-color: #71dad2;
+  height: $index-height;
+  @include span(4 of 4);
+}
+
+/* 導覽列 */
+.index-nav {
+  background-color: rgba(255, 215, 103, 0.42);
+  @include span(4 of 4);
+
+  .index-nav-top {
+    background-color: crimson;
+    height: $index-height;
+    @include span(4 of 4 last);
+  }
+
+  .index-nav-content {
+    background-color: khaki;
+    height: $index-height;
+    @include rwd-column(2, 1, 4, 600px);
+  }
+}
+
+/* end of 導覽列 */
+
+/* 部落客減重 */
+.index-main {
+  @include span(4 of 4);
+}
+
+.index-main-top {
+  background-color: #f0cebb;
+  height: $index-height;
+  @include span(4 of 4 last);
+}
+
+.index-main-blogger-pic {
+  background-color: #99d9fa;
+  height: $index-height * 1.5;
+  @include span(2 of 4);
+}
+
+.index-main-blogger-context {
+  background-color: #ee4400;
+  height: $index-height * 1.5;
+  @include span(2 of 4 last);
+}
+
+.index-main-content {
+  @include susy-clearfix;
+  @include rwd-column(4, 2, 4, 600px);
+
+  .index-main-content-pic {
+    background-color: #f2c8b2;
+    height: $index-height * 1.5;
+    @include rwd-column(1, 2, 4, 600px);
+  }
+
+  .index-main-content-link {
+    background-color: #999999;
+    height: $index-height * 1.5;
+    @include rwd-column(3, 2, 4, 600px, last);
+  }
+
+}
+
+/* end of 部落客減重 */
+
+/* 部落客穿搭 */
+.index-sub {
+  @include span(4 of 4);
+}
+
+.index-sub-top {
+  background-color: darkorange;
+  height: $index-height;
+  @include span(4 of 4 last);
+}
+
+.index-sub-blogger-pic {
+  background-color: floralwhite;
+  height: $index-height * 1.5;
+  @include span(2 of 4);
+}
+
+.index-sub-blogger-context {
+  background-color: lightcoral;
+  height: $index-height * 1.5;
+  @include span(2 of 4 last);
+}
+
+.index-sub-content {
+  @include susy-clearfix;
+  @include rwd-column(4, 2, 4, 600px);
+
+  .index-sub-content-pic {
+    background-color: #00ebff;
+    height: $index-height * 1.5;
+    @include rwd-column(1, 2, 4, 600px);
+  }
+
+  .index-sub-content-link {
+    background-color: crimson;
+    height: $index-height * 1.5;
+    @include rwd-column(3, 2, 4, 600px, last);
+  }
+}
+
+.index-sub-bottom {
+  background-color: grey;
+  height: $index-height;
+  @include span(4 of 4);
+}
+
+/* end of 部落客穿搭 */
+
+/* fb */
+.index-fb {
+  background-color: #b4155d;
+  @include span(4 of 4);
+  .index-fb-top {
+    background-color: #d3ffce;
+  }
+  .index-fb-content {
+    background-color: #99d9fa;
+  }
+  .index-fb-bottom {
+    background-color: #f0cebb;
+  }
+}
+/* end of fb */
