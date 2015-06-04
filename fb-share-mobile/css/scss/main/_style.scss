@@ -1,0 +1,95 @@
+.main-body {
+  margin: 10px;
+  min-width: 300px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.header {
+  background-color: #5E88F7;
+  @include border-radius(3px);
+  padding: 4px;
+  margin: 4px auto;
+  color: white;
+}
+
+.user-input {
+  .fb-img {
+    @include border-radius(25px);
+    margin-bottom: 9px;
+  }
+  .user-img {
+    display: inline-block;
+    width: 50px;
+  }
+  .msg-box {
+    display: inline-block;
+    width: auto;
+  }
+  textarea {
+    color: #555;
+    resize: none;
+    width: 100%;
+    @include box-shadow(2px 2px 1px #ddd);
+    @include border-radius(3px);
+    border-color: #ddd;
+  }
+}
+
+.share-page-info {
+  margin-top: 10px;
+  .article-image {
+    width: 100px;
+  }
+
+  .article-title {
+    font-weight: bold;
+    color: red;
+    width: 190px;
+    display: inline-block;
+  }
+
+  .source {
+    color: #bfbfbf;
+    font-size: small;
+    display: block;
+    margin: 5px 0;
+  }
+  .article-details {
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
+}
+
+.footer {
+  margin-top: 20px;
+  .left {
+    float: left;
+  }
+  .rigth {
+    float: right;
+  }
+  .button {
+    border: 1px solid #5E88F7;
+    color: #5E88F7;
+    cursor: pointer;
+    display: inline-block;
+    font-size: larger;
+    line-height: 1em;
+    padding: 12px 18px;
+    @include border-radius(10px);
+    @include box-shadow(2px 2px 1px #ddd);
+    @include user-select(none);
+
+    &.submit {
+      background-color: #5E88F7;
+      border: 0;
+      color: #fff;
+    }
+
+    &:active {
+      @include box-shadow(-2px -2px 1px #ddd);
+    }
+  }
+}
