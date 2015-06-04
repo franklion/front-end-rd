@@ -1,0 +1,6 @@
+*.swp
+fingerprint.txt
+node_modules/
+dist/
+.sass-cache/
+.idea/
