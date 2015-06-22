@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project startup</title>
+    <link rel="stylesheet" href="dist/css/style.css"/>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <!--<script src="dist/js/all.src.js"></script>-->
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<main class="main-body">
+    <form name="form1" id="form1" action="publish_send" method="post" onsubmit="return CheckSend()">
+        <header class="header">
+            <img src="http://fb.fashionguide.com.tw/resource/i/fbicon.gif" border="0" id="exifviewer-img-1" exifid="768002104" oldsrc="http://fb.fashionguide.com.tw/resource/i/fbicon.gif">
+            <span style="color=:#FFFFFF"><b>轉貼至個人檔案</b></span>
+        </header>
+        <article>
+            <!-- 使用者區塊 -->
+            <section class="user-input">
+                <span class="user-img">
+                    <img src="http://graph.facebook.com/1098241453524615/picture" id="fb_img" class="fb-img" exifid="-1338856004" oldsrc="http://graph.facebook.com/1098241453524615/picture">
+                </span>
+                <span class="msg-box">
+                    <textarea name="message" id="message" cols="65" rows="4"></textarea>
+                </span>
+            </section>
+
+            <!-- 文章區塊 -->
+            <section class="share-page-info">
+                <img class="article-image" src="https://pic.pimg.tw/christy0820/1432626106-2951059552.jpg?v=1432626131">
+
+                <a class="article-title" href="http://blog.fashionguide.com.tw/9577/posts/208439" target="_blank">【穿搭】一日喜酒穿搭。韓妞必備的蕾絲白洋裝♥</a>
+
+                <i class="source">blog.fashionguide.com.tw</i>
+                <div class="article-details">
+                    耶♥ 好韓妞哦（自己說XD）上次的喜酒穿搭來囉！當然不只是吃喜酒時可以穿像是謝師宴之類的場合，也很適合～ 這天吃喜酒，穿了白色的蕾絲洋裝算是比較貼身的款式，但是很有彈性所以穿起來是舒適的剛好當天太陽很大就也帶了墨鏡出來（這樣拍照更有氣勢了是不是XD）這一款的長度對心甜來說有一點短（168cm）所...
+                </div>
+            </section>
+        </article>
+        <footer class="footer">
+            <input type="hidden" name="publish_parameters" id="publish_parameters" value="{&quot;message&quot;:&quot;&quot;,&quot;name&quot;:&quot;\u3010\u7a7f\u642d\u3011\u4e00\u65e5\u559c\u9152\u7a7f\u642d\u3002\u97d3\u599e\u5fc5\u5099\u7684\u857e\u7d72\u767d\u6d0b\u88dd\u2665&quot;,&quot;caption&quot;:&quot;blog.fashionguide.com.tw&quot;,&quot;link&quot;:&quot;http://blog.fashionguide.com.tw/9577/posts/208439&quot;,&quot;description&quot;:&quot;\u8036\u2665 \u597d\u97d3\u599e\u54e6\uff08\u81ea\u5df1\u8aaaXD\uff09\u4e0a\u6b21\u7684\u559c\u9152\u7a7f\u642d\u4f86\u56c9\uff01\u7576\u7136\u4e0d\u53ea\u662f\u5403\u559c\u9152\u6642\u53ef\u4ee5\u7a7f\u50cf\u662f\u8b1d\u5e2b\u5bb4\u4e4b\u985e\u7684\u5834\u5408\uff0c\u4e5f\u5f88\u9069\u5408\uff5e \u9019\u5929\u5403\u559c\u9152\uff0c\u7a7f\u4e86\u767d\u8272\u7684\u857e\u7d72\u6d0b\u88dd\u7b97\u662f\u6bd4\u8f03\u8cbc\u8eab\u7684\u6b3e\u5f0f\uff0c\u4f46\u662f\u5f88\u6709\u5f48\u6027\u6240\u4ee5\u7a7f\u8d77\u4f86\u662f\u8212\u9069\u7684\u525b\u597d\u7576\u5929\u592a\u967d\u5f88\u5927\u5c31\u4e5f\u5e36\u4e86\u58a8\u93e1\u51fa\u4f86\uff08\u9019\u6a23\u62cd\u7167\u66f4\u6709\u6c23\u52e2\u4e86\u662f\u4e0d\u662fXD\uff09\u9019\u4e00\u6b3e\u7684\u9577\u5ea6\u5c0d\u5fc3\u751c\u4f86\u8aaa\u6709\u4e00\u9ede\u77ed\uff08168cm\uff09\u6240...&quot;,&quot;picture&quot;:&quot;https://pic.pimg.tw/christy0820/1432626106-2951059552.jpg?v=1432626131&quot;,&quot;actions&quot;:[{&quot;name&quot;:&quot;FG\u90e8\u843d\u683c&quot;,&quot;link&quot;:&quot;http://blog.fashionguide.com.tw&quot;}]}">
+            <input type="hidden" name="action" id="action" value="share_fg">
+            <input type="hidden" name="return_url" id="return_url" value="http://blog.fashionguide.com.tw/9577/posts/208439">
+            <input type="hidden" name="memo" id="memo" value="source,blog;num,208439">
+            <input type="hidden" name="from" id="from" value="share_fg">
+            <input type="hidden" name="fgcash" id="fgcash" value="Y">
+            <input type="hidden" name="fans" id="fans" value="">
+            <input type="hidden" name="fans_id" id="fans_id" value="">
+            <input type="hidden" name="access_token" id="access_token" value="CAAWmkNp7UqUBAJzolfENC3SHPO5RkF3XwYBhYrIRoqzisHoYKxrjsrjZAI3pzYw624oQbULpUOzj4EB8LKIFQxUv0dw70ewWOSUZCHU3bPjADrYAMTp5sidDOMuDWbaU0H2hk427gAAua95SC0WuHt55PHuXuZBCSQZALAapBJRzBrxIoQ22clpY7QV0LFfJj1iGJMVhCzHo4ZAa9iSKA">
+            <div class="left">
+                <a class="button" href="http://blog.fashionguide.com.tw" target="_blank">FG部落格</a>
+            </div>
+            <div class="rigth">
+                <button class="button submit" type="submit">分享連結</button>
+            </div>
+        </footer>
+    </form>
+
+</main>
+
+<script language="javascript">
+    String.prototype.Trim = function () {
+        return this.replace(/(^\s*)|(\s*$)/g, "");
+    };
+    function CheckSend() {
+
+        if (document.getElementById("message").value.Trim() == "") {
+
+            alert("您忘了輸入要發佈的訊息唷~");
+            return false;
+        }
+
+        if (!connected) {
+            alert("請等待facebook串接");
+            return false;
+        }
+    }
+
+</script>
+
+</body>
+</html>
